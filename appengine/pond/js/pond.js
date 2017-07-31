@@ -184,3 +184,17 @@ Pond.showHelp = function() {
       BlocklyDialogs.stopDialogKeyDown);
   BlocklyDialogs.startDialogKeyDown();
 };
+
+Blockly.CAT_POND_RGB = "#995BA5";
+
+Blockly.CAT_LOOPS_RGB = "#5BA55B";
+
+Blockly.CAT_COLOUR_RGB = "#A5745B";
+
+Blockly.CAT_LOGIC_RGB = "#5B80A5";
+
+Blockly.CAT_MATH_RGB = "#5B67A5";
+
+Blockly.CAT_VARIABLE_RGB = "#888888";
+
+Blockly.CAT_PROCEDURE_RGB = "#995BA5";

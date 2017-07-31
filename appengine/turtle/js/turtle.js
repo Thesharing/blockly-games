@@ -156,9 +156,9 @@ Turtle.init = function() {
 
   BlocklyGames.bindClick('runButton', Turtle.runButtonClick);
   BlocklyGames.bindClick('resetButton', Turtle.resetButtonClick);
-
+  BlocklyGames.audioWorkspace = new Blockly.WorkspaceAudio(BlocklyGames.workspace);
   // Preload the win sound.
-  BlocklyGames.workspace.loadAudio_(['turtle/win.mp3', 'turtle/win.ogg'],
+  BlocklyGames.audioWorkspace.load(['turtle/win.mp3', 'turtle/win.ogg'],
       'win');
   // Lazy-load the JavaScript interpreter.
   setTimeout(BlocklyInterface.importInterpreter, 1);
@@ -676,7 +676,7 @@ Turtle.checkAnswer = function() {
     BlocklyInterface.saveToLocalStorage();
     if (BlocklyGames.LEVEL < BlocklyGames.MAX_LEVEL) {
       // No congrats for last level, it is open ended.
-      BlocklyGames.workspace.playAudio('win', 0.5);
+      BlocklyGames.audioWorkspace.play('win', 0.5);
       BlocklyDialogs.congratulations();
     }
   } else {
@@ -708,3 +708,17 @@ Turtle.submitToReddit = function() {
   // Submit the form.
   document.getElementById('t2r_form').submit();
 };
+
+Blockly.CAT_TURTLE_RGB = "#5BA58C";
+
+Blockly.CAT_LOOPS_RGB = "#5BA55B";
+
+Blockly.CAT_COLOUR_RGB = "#A5745B";
+
+Blockly.CAT_LOGIC_RGB = "#5B80A5";
+
+Blockly.CAT_MATH_RGB = "#5B67A5";
+
+Blockly.CAT_VARIABLE_RGB = "#888888";
+
+Blockly.CAT_PROCEDURE_RGB = "#995BA5";

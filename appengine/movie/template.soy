@@ -190,7 +190,7 @@
  */
 {template .toolbox}
   <xml id="toolbox" style="display: none">
-    <category name="{msg meaning="Games.movie" desc="IBID"}Movie{/msg}">
+    <category name="{msg meaning="Games.movie" desc="IBID"}Movie{/msg}" id="cat_movie">
       <block type="movie_circle">
       {if $ij.level != 2}
         <value name="X">
@@ -263,7 +263,7 @@
         <block type="movie_time"></block>
       {/if}
     </category>
-    <category name="{msg meaning="Games.catColour" desc="IBID"}Colour{/msg}">
+    <category name="{msg meaning="Games.catColour" desc="IBID"}Colour{/msg}" id="cat_colour">
       <block type="movie_colour">
         <value name="COLOUR">
           <shadow type="colour_picker"></shadow>
@@ -308,7 +308,7 @@
       {/if}
     </category>
     {if $ij.level > 7}
-      <category name="{msg meaning="Games.catLogic" desc="IBID"}Logic{/msg}">
+      <category name="{msg meaning="Games.catLogic" desc="IBID"}Logic{/msg}" id="cat_logic">
         <block type="controls_if">
         {if $ij.level < 10}
           <mutation else="1"></mutation>
@@ -324,7 +324,7 @@
       </category>
     {/if}
     {if $ij.level == 10}
-      <category name="{msg meaning="Games.catLoops" desc="IBID"}Loops{/msg}">
+      <category name="{msg meaning="Games.catLoops" desc="IBID"}Loops{/msg}" id="cat_logic">
         <block type="controls_whileUntil"></block>
         <block type="controls_for">
           <value name="FROM">
@@ -346,7 +346,7 @@
         <block type="controls_flow_statements"></block>
       </category>
     {/if}
-    <category name="{msg meaning="Games.catMath" desc="IBID"}Math{/msg}">
+    <category name="{msg meaning="Games.catMath" desc="IBID"}Math{/msg}" id="cat_math">
       <block type="math_number"></block>
       <block type="math_arithmetic">
         <value name="A">
@@ -423,8 +423,8 @@
     </category>
     {if $ij.level == 10}
       <sep></sep>
-      <category name="{msg meaning="Games.catVariables" desc="IBID"}Variables{/msg}" custom="VARIABLE"></category>
-      <category name="{msg meaning="Games.catProcedures" desc="IBID"}Functions{/msg}" custom="PROCEDURE"></category>
+      <category name="{msg meaning="Games.catVariables" desc="IBID"}Variables{/msg}" custom="VARIABLE" id="cat_variable"></category>
+      <category name="{msg meaning="Games.catProcedures" desc="IBID"}Functions{/msg}" custom="PROCEDURE" id="cat_procedure"></category>
     {/if}
   </xml>
 {/template}

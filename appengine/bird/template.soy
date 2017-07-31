@@ -151,6 +151,7 @@
  */
 {template .toolbox}
   <xml id="toolbox" style="display: none;">
+      <category name="{msg meaning="Games.bird" desc="IBID"}Bird{/msg}" id="cat_bird">
     <block type="bird_heading"></block>
     {if $ij.level >= 2}
       {if $ij.level == 4 or $ij.level == 5}
@@ -192,5 +193,6 @@
         {/if}
       {/if}
     {/if}
+      </category>
   </xml>
 {/template}

@@ -517,8 +517,9 @@ Maze.init = function() {
        'toolbox': toolbox,
        'trashcan': true,
        'zoom': {'startScale': scale}});
-  BlocklyGames.workspace.loadAudio_(Maze.SKIN.winSound, 'win');
-  BlocklyGames.workspace.loadAudio_(Maze.SKIN.crashSound, 'fail');
+  BlocklyGames.audioWorkspace = new Blockly.WorkspaceAudio(BlocklyGames.workspace);
+  BlocklyGames.audioWorkspace.load(Maze.SKIN.winSound, 'win');
+  BlocklyGames.audioWorkspace.load(Maze.SKIN.crashSound, 'fail');
   // Not really needed, there are no user-defined functions or variables.
   Blockly.JavaScript.addReservedWords('moveForward,moveBackward,' +
       'turnRight,turnLeft,isPathForward,isPathRight,isPathBackward,isPathLeft');
@@ -1255,7 +1256,7 @@ Maze.scheduleFail = function(forward) {
     Maze.displayPegman(Maze.pegmanX + deltaX,
                        Maze.pegmanY + deltaY,
                        direction16);
-    BlocklyGames.workspace.playAudio('fail', 0.5);
+    BlocklyGames.audioWorkspace.play('fail', 0.5);
     Maze.pidList.push(setTimeout(function() {
       Maze.displayPegman(Maze.pegmanX,
                          Maze.pegmanY,
@@ -1265,7 +1266,7 @@ Maze.scheduleFail = function(forward) {
       Maze.displayPegman(Maze.pegmanX + deltaX,
                          Maze.pegmanY + deltaY,
                          direction16);
-      BlocklyGames.workspace.playAudio('fail', 0.5);
+      BlocklyGames.audioWorkspace.play('fail', 0.5);
     }, Maze.stepSpeed * 2));
     Maze.pidList.push(setTimeout(function() {
         Maze.displayPegman(Maze.pegmanX, Maze.pegmanY, direction16);
@@ -1283,7 +1284,7 @@ Maze.scheduleFail = function(forward) {
       acceleration = 0.01;
     }
     Maze.pidList.push(setTimeout(function() {
-      BlocklyGames.workspace.playAudio('fail', 0.5);
+      BlocklyGames.audioWorkspace.play('fail', 0.5);
     }, Maze.stepSpeed * 2));
     var setPosition = function(n) {
       return function() {
@@ -1312,7 +1313,7 @@ Maze.scheduleFinish = function(sound) {
   var direction16 = Maze.constrainDirection16(Maze.pegmanD * 4);
   Maze.displayPegman(Maze.pegmanX, Maze.pegmanY, 16);
   if (sound) {
-    BlocklyGames.workspace.playAudio('win', 0.5);
+    BlocklyGames.audioWorkspace.play('win', 0.5);
   }
   Maze.stepSpeed = 150;  // Slow down victory animation a bit.
   Maze.pidList.push(setTimeout(function() {
@@ -1534,3 +1535,5 @@ Maze.notDone = function() {
 };
 
 window.addEventListener('load', Maze.init);
+
+Blockly.CAT_MAZE_RGB = "#995BA5";

@@ -332,11 +332,12 @@ Bird.init = function() {
        'rtl': rtl,
        'toolbox': toolbox,
        'trashcan': true});
-  BlocklyGames.workspace.loadAudio_(['bird/quack.ogg', 'bird/quack.mp3'],
+  BlocklyGames.audioWorkspace = new Blockly.WorkspaceAudio(BlocklyGames.workspace);
+  BlocklyGames.audioWorkspace.load(['bird/quack.ogg', 'bird/quack.mp3'],
       'quack');
-  BlocklyGames.workspace.loadAudio_(['bird/whack.mp3', 'bird/whack.ogg'],
+  BlocklyGames.audioWorkspace.load(['bird/whack.mp3', 'bird/whack.ogg'],
       'whack');
-  BlocklyGames.workspace.loadAudio_(['bird/worm.mp3', 'bird/worm.ogg'], 'worm');
+  BlocklyGames.audioWorkspace.load(['bird/worm.mp3', 'bird/worm.ogg'], 'worm');
   if (BlocklyGames.LEVEL > 1) {
     BlocklyGames.workspace.addChangeListener(Blockly.Events.disableOrphans);
   }
@@ -701,7 +702,7 @@ Bird.animate = function() {
     BlocklyInterface.saveToLocalStorage();
     BlocklyDialogs.congratulations();
   } else if (action[0] == 'play') {
-    BlocklyGames.workspace.playAudio(action[1], 0.5);
+    BlocklyGames.audioWorkspace.play(action[1], 0.5);
   }
 
   Bird.pidList.push(setTimeout(Bird.animate, Bird.stepSpeed * 5));
@@ -835,3 +836,5 @@ Bird.heading = function(angle, id) {
     throw false;
   }
 };
+
+Blockly.CAT_BIRD_RGB = "#995BA5";

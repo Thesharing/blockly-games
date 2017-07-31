@@ -47,9 +47,9 @@ Blockly.Blocks['pond_scan'] = {
    */
   init: function() {
     this.jsonInit({
-      "message0": "%1(%2)",
+      "message0": "%1 %2",
       "args0": [
-        "scan",
+        BlocklyGames.getMsg('Pond_scan'),
         {
           "type": "input_value",
           "name": "DEGREE",
@@ -79,14 +79,16 @@ Blockly.Blocks['pond_cannon'] = {
    */
   init: function() {
     this.jsonInit({
-      "message0": "%1(%2, %3);",
+      "message0": "%1 %2 %3 %4 %5",
       "args0": [
-        "cannon",
+        BlocklyGames.getMsg('Pond_cannon'),
+        BlocklyGames.getMsg('Pond_angle'),
         {
           "type": "input_value",
           "name": "DEGREE",
           "check": ["Number", "Angle"]
         },
+        BlocklyGames.getMsg('Pond_range'),
         {
           "type": "input_value",
           "name": "RANGE",
@@ -118,9 +120,10 @@ Blockly.Blocks['pond_swim'] = {
    */
   init: function() {
     this.jsonInit({
-      "message0": "%1(%2);",
+      "message0": "%1 %2 %3",
       "args0": [
-          "swim",
+        BlocklyGames.getMsg('Pond_swim'),
+        BlocklyGames.getMsg('Pond_angle'),
         {
           "type": "input_value",
           "name": "DEGREE",
@@ -150,8 +153,8 @@ Blockly.Blocks['pond_stop'] = {
    */
   init: function() {
     this.jsonInit({
-      "message0": "%1(%2)",
-      "args0": ["stop", ""],
+      "message0": "%1",
+      "args0": [BlocklyGames.getMsg('Pond_stop')],
       "previousStatement": null,
       "nextStatement": null,
       "colour": Pond.Blocks.POND_HUE,
@@ -172,8 +175,8 @@ Blockly.Blocks['pond_health'] = {
    */
   init: function() {
     this.jsonInit({
-      "message0": "%1(%2)",
-      "args0": ["health", ""],
+      "message0": "%1",
+      "args0": [BlocklyGames.getMsg('Pond_health')],
       "output": "Number",
       "colour": Pond.Blocks.POND_HUE,
       "tooltip": BlocklyGames.getMsg('Pond_healthTooltip')
@@ -193,8 +196,8 @@ Blockly.Blocks['pond_speed'] = {
    */
   init: function() {
     this.jsonInit({
-      "message0": "%1(%2)",
-      "args0": ["speed", ""],
+      "message0": "%1",
+      "args0": [BlocklyGames.getMsg('Pond_speed')],
       "output": "Number",
       "colour": Pond.Blocks.POND_HUE,
       "tooltip": BlocklyGames.getMsg('Pond_speedTooltip')
@@ -214,8 +217,8 @@ Blockly.Blocks['pond_getX'] = {
    */
   init: function() {
     this.jsonInit({
-      "message0": "%1(%2)",
-      "args0": ["getX", ""],
+      "message0": "%1",
+      "args0": [BlocklyGames.getMsg('Pond_getX')],
       "output": "Number",
       "colour": Pond.Blocks.POND_HUE,
       "tooltip": BlocklyGames.getMsg('Pond_locXTooltip')
@@ -235,8 +238,8 @@ Blockly.Blocks['pond_getY'] = {
    */
   init: function() {
     this.jsonInit({
-      "message0": "%1(%2)",
-      "args0": ["getY", ""],
+      "message0": "%1",
+      "args0": [BlocklyGames.getMsg('Pond_getY')],
       "output": "Number",
       "colour": Pond.Blocks.POND_HUE,
       "tooltip": BlocklyGames.getMsg('Pond_locYTooltip')
@@ -316,14 +319,14 @@ Blockly.Blocks['pond_math_single'] = {
           "type": "field_dropdown",
           "name": "OP",
           "options": [
-            ["Math.sqrt", "ROOT"],
-            ["Math.abs", "ABS"],
-            ["Math.sin_deg", "SIN"],
-            ["Math.cos_deg", "COS"],
-            ["Math.tan_deg", "TAN"],
-            ["Math.asin_deg", "ASIN"],
-            ["Math.acos_deg", "ACOS"],
-            ["Math.atan_deg", "ATAN"]
+            [Blockly.Msg.MATH_SINGLE_OP_ROOT, "ROOT"],
+            [Blockly.Msg.MATH_SINGLE_OP_ABSOLUTE, "ABS"],
+            [BlocklyGames.getMsg('Math_sin'), "SIN"],
+            [BlocklyGames.getMsg('Math_cos'), "COS"],
+            [BlocklyGames.getMsg('Math_tan'), "TAN"],
+            [BlocklyGames.getMsg('Math_asin'), "ASIN"],
+            [BlocklyGames.getMsg('Math_acos'), "ACOS"],
+            [BlocklyGames.getMsg('Math_atan'), "ATAN"]
           ]
         },
         {

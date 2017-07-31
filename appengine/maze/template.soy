@@ -239,6 +239,7 @@
  */
 {template .toolbox}
   <xml id="toolbox" style="display: none;">
+      <category name="{msg meaning="Games.maze" desc="IBID"}Maze{/msg}" id="cat_maze">
     <block type="maze_moveForward"></block>
     <block type="maze_turn"><field name="DIR">turnLeft</field></block>
     <block type="maze_turn"><field name="DIR">turnRight</field></block>
@@ -253,5 +254,6 @@
         {/if}
       {/if}
     {/if}
+      </category>
   </xml>
 {/template}

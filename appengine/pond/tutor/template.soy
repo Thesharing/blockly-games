@@ -179,7 +179,7 @@
  */
 {template .toolbox}
   <xml id="toolbox" style="display: none;">
-    <category name="{msg meaning="Games.pond" desc="IBID"}Pond{/msg}">
+    <category name="{msg meaning="Games.pond" desc="IBID"}Pond{/msg}" id="cat_pond">
       <block type="pond_cannon">
         <value name="DEGREE">
           <shadow type="pond_math_number">
@@ -219,18 +219,18 @@
   {/if}
     </category>
 {if $ij.level >= 3}
-    <category name="{msg meaning="Games.catLogic" desc="IBID"}Logic{/msg}">
+    <category name="{msg meaning="Games.catLogic" desc="IBID"}Logic{/msg}" id="cat_logic">
   {if $ij.level >= 9}
       <block type="controls_if"></block>
       <block type="logic_compare"></block>
   {/if}
       <block type="logic_boolean"></block>
     </category>
-    <category name="{msg meaning="Games.catLoops" desc="IBID"}Loops{/msg}">
+    <category name="{msg meaning="Games.catLoops" desc="IBID"}Loops{/msg}" id="cat_loops">
       <block type="controls_whileUntil"></block>
     </category>
 {/if}
-    <category name="{msg meaning="Games.catMath" desc="IBID"}Math{/msg}">
+    <category name="{msg meaning="Games.catMath" desc="IBID"}Math{/msg}" id="cat_math">
       <block type="pond_math_number"></block>
     </category>
   </xml>
