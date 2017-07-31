@@ -141,3 +141,11 @@ Interpreter.prototype.getProperty = function(obj, name) {};
  * @param {boolean} opt_fixed Unchangable property if true.
  */
 Interpreter.prototype.setProperty = function(obj, name, value, opt_fixed) {};
+
+var BlocklyStorage = {};
+BlocklyStorage.backupOnUnload = function() {};
+BlocklyStorage.restoreBlocks = function() {};
+BlocklyStorage.link = function() {};
+BlocklyStorage.retrieveXml = function(key) {};
+BlocklyStorage.alert = function(message) {};
+var prettyPrintOne = function(code, lang) {};

@@ -2,8 +2,8 @@
 # Definitions
 ##############################
 
-USER_APPS = {index,puzzle,maze,bird,turtle,movie,pond/docs,pond/tutor,pond/duck}
-ALL_JSON = {./,index,puzzle,maze,bird,turtle,movie,pond/docs,pond,pond/tutor,pond/duck}
+USER_APPS = index puzzle maze bird turtle movie pond/docs pond/tutor pond/duck
+ALL_JSON = ./ index puzzle maze bird turtle movie pond/docs pond pond/tutor pond/duck
 ALL_TEMPLATES = appengine/template.soy,appengine/index/template.soy,appengine/puzzle/template.soy,appengine/maze/template.soy,appengine/bird/template.soy,appengine/turtle/template.soy,appengine/movie/template.soy,appengine/pond/docs/template.soy,appengine/pond/template.soy,appengine/pond/tutor/template.soy,appengine/pond/duck/template.soy
 
 APP_ENGINE_THIRD_PARTY = appengine/third-party
@@ -65,6 +65,56 @@ common-en:
 	$(SOY_COMPILER) --outputPathFormat appengine/generated/en/soy.js --srcs appengine/template.soy
 
 en: index-en puzzle-en maze-en bird-en turtle-en movie-en pond-docs-en pond-tutor-en pond-duck-en genetics-en
+
+index-zh-hans:
+	mkdir -p appengine/generated/zh-hans/
+	$(SOY_COMPILER) --outputPathFormat appengine/index/generated/zh-hans/soy.js --srcs appengine/index/template.soy
+	python build-app.py index zh-hans
+
+puzzle-zh-hans: common-zh-hans
+	$(SOY_COMPILER) --outputPathFormat appengine/puzzle/generated/zh-hans/soy.js --srcs appengine/puzzle/template.soy
+	python build-app.py puzzle zh-hans
+
+maze-zh-hans: common-zh-hans
+	$(SOY_COMPILER) --outputPathFormat appengine/maze/generated/zh-hans/soy.js --srcs appengine/maze/template.soy
+	python build-app.py maze zh-hans
+
+bird-zh-hans: common-zh-hans
+	$(SOY_COMPILER) --outputPathFormat appengine/bird/generated/zh-hans/soy.js --srcs appengine/bird/template.soy
+	python build-app.py bird zh-hans
+
+turtle-zh-hans: common-zh-hans
+	$(SOY_COMPILER) --outputPathFormat appengine/turtle/generated/zh-hans/soy.js --srcs appengine/turtle/template.soy
+	python build-app.py turtle zh-hans
+
+movie-zh-hans: common-zh-hans
+	$(SOY_COMPILER) --outputPathFormat appengine/movie/generated/zh-hans/soy.js --srcs appengine/movie/template.soy
+	python build-app.py movie zh-hans
+
+pond-docs-zh-hans:
+	mkdir -p appengine/pond/generated/zh-hans/
+	$(SOY_COMPILER) --outputPathFormat appengine/pond/docs/generated/zh-hans/soy.js --srcs appengine/pond/docs/template.soy
+	python build-app.py pond/docs zh-hans
+
+pond-tutor-zh-hans: pond-common-zh-hans
+	$(SOY_COMPILER) --outputPathFormat appengine/pond/tutor/generated/zh-hans/soy.js --srcs appengine/pond/tutor/template.soy
+	python build-app.py pond/tutor zh-hans
+
+pond-duck-zh-hans: pond-common-zh-hans
+	$(SOY_COMPILER) --outputPathFormat appengine/pond/duck/generated/zh-hans/soy.js --srcs appengine/pond/duck/template.soy
+	python build-app.py pond/duck zh-hans
+
+genetics-zh-hans: common-zh-hans
+	$(SOY_COMPILER) --outputPathFormat appengine/genetics/generated/zh-hans/soy.js --srcs appengine/genetics/template.soy
+	python build-app.py genetics zh-hans
+
+pond-common-zh-hans: common-zh-hans
+	$(SOY_COMPILER) --outputPathFormat appengine/pond/generated/zh-hans/soy.js --srcs appengine/pond/template.soy
+
+common-zh-hans:
+	$(SOY_COMPILER) --outputPathFormat appengine/generated/zh-hans/soy.js --srcs appengine/template.soy
+
+zh-hans: index-zh-hans puzzle-zh-hans maze-zh-hans bird-zh-hans turtle-zh-hans movie-zh-hans pond-docs-zh-hans pond-tutor-zh-hans pond-duck-zh-hans genetics-zh-hans
 
 languages:
 	$(SOY_EXTRACTOR) --outputFile extracted_msgs.xlf --srcs $(ALL_TEMPLATES)

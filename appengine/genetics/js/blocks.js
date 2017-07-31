@@ -405,6 +405,8 @@ Blockly.Blocks['genetics_sex'] = {
  */
 Blockly.JavaScript['genetics_sex'] = function(block) {
   // Generate JavaScript for getting sex enum.
+  var mouse = Blockly.JavaScript.valueToCode(block, 'MOUSE',
+      Blockly.JavaScript.ORDER_NONE) || 'me()';
   var type = block.getFieldValue('TYPE');
   var code = mouse + 'Sex.';
   if(type == 'MALE') {

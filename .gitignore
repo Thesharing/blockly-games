@@ -9,3 +9,4 @@ json/keys.json
 third-party/
 
 *.komodoproject
+.idea/

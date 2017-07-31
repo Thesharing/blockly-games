@@ -71,7 +71,7 @@
     // Don't even think of throwing an error.
   }
   script.src = appName + '/generated/' + lang +
-      (debug ? '/uncompressed.js' : '/compressed.js');
+      (debug ? '/uncompressed.js' : '/uncompressed.js');
   script.type = 'text/javascript';
   document.head.appendChild(script);
 })();
